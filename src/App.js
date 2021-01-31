@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import Helm from './components/Helm'
 import Inputs from './components/Inputs'
 
 import SandboxCardList from './components/SandboxCardList'
@@ -64,6 +65,7 @@ function App() {
 
   return (
     <div className="App">
+      <Helm title={title} />
       <Title title={title} handleTitleChange={handleTitleChange} />
       <Inputs
         handleAddSandboxSubmit={handleAddSandboxSubmit}
