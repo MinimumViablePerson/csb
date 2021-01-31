@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Inputs = ({ handleAddSandboxSubmit, generateCurrentUrl }) => {
   const [copied, setCopied] = useState(false)

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const SandboxCard = ({ sandbox, removeId }) => (
   <div className="sandbox">
     <button className="delete button" onClick={() => removeId(sandbox.id)}>

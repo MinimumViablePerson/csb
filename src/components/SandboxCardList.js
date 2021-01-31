@@ -1,4 +1,3 @@
-import React from 'react'
 import SandboxCard from './SandboxCard'
 
 const SandboxCardList = ({ sandboxes, removeId }) => {
