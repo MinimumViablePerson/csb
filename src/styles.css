@@ -1,0 +1,147 @@
+:root {
+  --white: 255, 255, 255;
+  --black: 20, 20, 20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(var(--black));
+  color: rgba(var(--white), 0.9);
+}
+
+.button {
+  text-decoration: none;
+  color: rgb(var(--white));
+  border: 1px solid rgba(var(--black), 0);
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-left: 5px;
+  background: rgba(var(--white), 0.15);
+  cursor: pointer;
+
+  transition: background-color 300ms;
+}
+
+.button:hover {
+  background: rgba(var(--white), 0.25);
+}
+
+.button:active {
+  background: rgba(var(--white), 0.1);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.App > input.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 100%;
+  padding: 30px 0;
+  border: none;
+  background: none;
+  color: rgba(var(--white), 0.9);
+}
+
+.App > input.title:focus {
+  outline: none;
+}
+
+.inputs {
+  padding-bottom: 20px;
+}
+
+.inputs form {
+  display: inline-block;
+}
+
+.inputs .sandbox-url-input {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  width: 300px;
+
+  font-size: 1rem;
+}
+
+.inputs .button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sandboxes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sandbox {
+  border: 1px solid rgba(var(--white), 0.25);
+  border-radius: 5px;
+  padding: 10px;
+  width: 320px;
+  margin: 10px;
+
+  position: relative;
+}
+
+.sandbox .delete.button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: rgba(var(--black), 0.5);
+  border: 1px solid rgba(var(--white), 0.5);
+}
+
+.sandbox .delete.button:hover {
+  background-color: rgba(var(--white), 0.7);
+  color: rgba(var(--black), 0.7);
+}
+
+.sandbox .title {
+  font-size: 1rem;
+  padding: 10px 0;
+}
+
+.sandbox .screenshot {
+  width: 100%;
+}
+
+.sandbox .description {
+  text-align: left;
+  font-size: 0.9rem;
+  min-height: 60px;
+  color: rgba(var(--white), 0.7);
+}
+
+.sandbox .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sandbox .links .author {
+  text-decoration: none;
+  color: rgba(var(--white), 0.5);
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(var(--white), 0);
+  transition: border-bottom 200ms;
+}
+
+.sandbox .links .author:hover {
+  color: rgba(var(--white), 0.6);
+  border-bottom: 1px solid rgba(var(--white), 0.6);
+}
