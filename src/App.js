@@ -43,6 +43,9 @@ function App() {
 
   const handleTitleChange = e => setTitle(e.target.value)
 
+  const generateCurrentUrl = () =>
+    `${window.origin}=${ids.join(',')}&title=${title}`
+
   const fetchSandboxes = useCallback(async () => {
     const newSandboxes = await Promise.all(ids.map(fetchCachedSandboxMetadata))
     setSandboxes(newSandboxes)
@@ -54,12 +57,7 @@ function App() {
 
   useEffect(() => {
     if (ids.length === 0) return
-
-    window.history.replaceState(
-      null,
-      null,
-      `https://o1hm8.csb.app?ids=${ids.join(',')}&title=${title}`
-    )
+    window.history.replaceState(null, null, generateCurrentUrl())
   }, [ids, title])
 
   return (

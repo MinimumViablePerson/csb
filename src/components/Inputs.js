@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 
-const Inputs = ({ handleAddSandboxSubmit, title, ids }) => {
+const Inputs = ({ handleAddSandboxSubmit, generateCurrentUrl }) => {
   const [copied, setCopied] = useState(false)
 
   const handleCopyUrl = () => {
-    const urlToCopy = window.encodeURI(
-      `${window.origin}?ids=${ids.join(',')}&title=${title}`
-    )
+    const urlToCopy = window.encodeURI(generateCurrentUrl())
     navigator.clipboard.writeText(urlToCopy)
     setCopied(true)
     setTimeout(() => setCopied(false), 3000)
