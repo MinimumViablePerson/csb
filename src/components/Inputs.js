@@ -4,7 +4,7 @@ const Inputs = ({ handleAddSandboxSubmit, generateCurrentUrl }) => {
   const [copied, setCopied] = useState(false)
 
   const handleCopyUrl = () => {
-    const urlToCopy = window.encodeURI(generateCurrentUrl())
+    const urlToCopy = generateCurrentUrl()
     navigator.clipboard.writeText(urlToCopy)
     setCopied(true)
     setTimeout(() => setCopied(false), 3000)

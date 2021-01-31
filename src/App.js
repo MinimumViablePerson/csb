@@ -43,8 +43,11 @@ function App() {
 
   const handleTitleChange = e => setTitle(e.target.value)
 
-  const generateCurrentUrl = () =>
-    `${window.origin}=${ids.join(',')}&title=${title}`
+  const generateCurrentUrl = useCallback(
+    () =>
+      window.encodeURI(`${window.origin}?ids=${ids.join(',')}&title=${title}`),
+    [ids, title]
+  )
 
   const fetchSandboxes = useCallback(async () => {
     const newSandboxes = await Promise.all(ids.map(fetchCachedSandboxMetadata))
@@ -56,17 +59,15 @@ function App() {
   }, [fetchSandboxes])
 
   useEffect(() => {
-    if (ids.length === 0) return
     window.history.replaceState(null, null, generateCurrentUrl())
-  }, [ids, title])
+  }, [generateCurrentUrl])
 
   return (
     <div className="App">
       <Title title={title} handleTitleChange={handleTitleChange} />
       <Inputs
         handleAddSandboxSubmit={handleAddSandboxSubmit}
-        title={title}
-        ids={ids}
+        generateCurrentUrl={generateCurrentUrl}
       />
       <SandboxCardList sandboxes={sandboxes} removeId={removeId} />
     </div>
