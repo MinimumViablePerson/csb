@@ -5,7 +5,7 @@ const Inputs = ({ handleAddSandboxSubmit, title, ids }) => {
 
   const handleCopyUrl = () => {
     const urlToCopy = window.encodeURI(
-      `https://o1hm8.csb.app?ids=${ids.join(',')}&title=${title}`
+      `${window.origin}?ids=${ids.join(',')}&title=${title}`
     )
     navigator.clipboard.writeText(urlToCopy)
     setCopied(true)
