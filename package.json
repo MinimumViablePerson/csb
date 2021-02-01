@@ -1,7 +1,7 @@
 {
   "name": "codesandbox-collections",
   "version": "1.0.0",
-  "description": "Your sandbox will make a fine addition to my collection!",
+  "description": "Create a list of your favourite sandboxes from any user and share it easily using the generated link!",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
