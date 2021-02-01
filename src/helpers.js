@@ -1,7 +1,15 @@
 let cache = {}
 
+const fetchWithCORS = (url, options = {}) =>
+  fetch(`https://cors-anywhere.herokuapp.com/${url}`, {
+    ...options,
+    headers: {
+      'X-Requested-With': 'Hi!'
+    }
+  })
+
 const fetchSandboxMetadata = sandboxId =>
-  fetch(`https://codesandbox.io/s/${sandboxId}`)
+  fetchWithCORS(`https://codesandbox.io/s/${sandboxId}`)
     .then(resp => resp.text())
     .then(html => {
       const DOM = document.createElement('html')
